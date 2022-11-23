@@ -45,9 +45,34 @@
                     NameStyle,
                     Title,
                     FirstName,
+
                     MiddleName,
+                        CASE 
+                                WHEN (MiddleName = 'E' OR MiddleName = 'A') THEN 'VOGAIS'
+                                WHEN (MiddleName = 'E' OR MiddleName = 'A') AND Title IS NOT NULL THEN  'Vogais_2'
+                                ELSE 'TUDO JUNTO'
+                        END AS Middlename_Diferente,
+
+
+
                     LastName,
+
                     Rate,
+                    CASE  
+                          WHEN Rate < 12.000 THEN 'Salário Minimo'
+                          WHEN Rate BETWEEN 12.000 AND 20.000 THEN 'EMPRESARIO'
+                          WHEN Rate > 20.000 THEN 'MILIONARIO'
+                         -- ELSE 'COITADO'
+                     END  AS  [COMPARACAO RATE] ,  
+
+                        Rate,
+                    CASE  
+                          WHEN Rate < 12.000 THEN (Rate * 3 )
+                          WHEN Rate BETWEEN 12.000 AND 20.000 THEN Rate * 1.1
+                          WHEN Rate > 20.000 THEN Rate * 0.1
+                       --   ELSE 'COITADO'
+                     END  AS  [COMPARACAO NUMERAL] ,  
+
                     PayFrequency,
                     PEA.EmailAddress,
                     PPP.PhoneNumber,
