@@ -11,3 +11,13 @@ T - SQL - TRANSACT SQL
     AS ALIASES = APELIDO DA COLUNA 
 
 */      
+
+        SELECT BusinessEntityID,
+                        PersonType,
+                        Title,
+                        FirstName,
+                        MiddleName,
+                        LastName,
+                        ModifiedDate   -- ultima coluna sem virgula
+        FROM Person.Person 
+        --WHERE FirstName = 'Pete'
